@@ -4,8 +4,8 @@
 
 <h2>🚀 Demo</h2>
 
-[Live demo](dasd)
-[API Doc](https://documenter.getpostman.com/view/25947467/2s9Y5eNfJh)
+[Live demo](dasd) <br>
+[API Doc](https://documenter.getpostman.com/view/25947467/2s9Y5eNfJh) <br>
 [Database Design](https://drawsql.app/teams/vaseem-1/diagrams/shippr-db)
 
 <h2>Project Screenshots:</h2>
