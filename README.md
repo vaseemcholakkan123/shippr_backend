@@ -4,7 +4,7 @@
 
 <h2>🚀 Demo</h2>
 
-[Live demo](dasd) <br>
+[Live demo](https://shippr-vaseem.vercel.app/) <br>
 [API Doc](https://documenter.getpostman.com/view/25947467/2s9Y5eNfJh) <br>
 [Database Design](https://drawsql.app/teams/vaseem-1/diagrams/shippr-db)
 
