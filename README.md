@@ -1,6 +1,6 @@
 <h1 align="center" id="title">Shippr</h1>
 
-<p id="description">A mini E-commerce backend built with django and React</p>
+<p id="description">A mini E-commerce project built with django and React</p>
 
 <h2>🚀 Demo</h2>
 
