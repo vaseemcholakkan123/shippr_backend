@@ -4,7 +4,7 @@ from . import views as ProductViews
 
 urlpatterns = [
     path('action/<int:pk>',ProductViews.ProductActionVendor.as_view() ,name='product-action'),
-    path('action/',ProductViews.ProductActionVendor.as_view() ,name='product-action'),
+    path('create/',ProductViews.ProductActionVendor.as_view() ,name='product-action'),
     path('get-categories/', ProductViews.GetCategories.as_view(), name="retrieve-categories"),
     path('get-vendor-products/',ProductViews.RetrieveVendorProducts.as_view(), name="get-vendor-products" ),
     path('get-user-products/', ProductViews.GetProductForUser.as_view(), name='get-product-for-user'),

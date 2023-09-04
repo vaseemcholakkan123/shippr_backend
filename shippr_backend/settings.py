@@ -84,6 +84,7 @@ WSGI_APPLICATION = 'shippr_backend.wsgi.application'
 
 # Custom user model
 AUTH_USER_MODEL = "Auth.User"
+CORS_ALLOW_ALL_ORIGINS = True
 
 # Media url settings
 
