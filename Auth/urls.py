@@ -7,5 +7,6 @@ urlpatterns = [
     path("login/" , AuthViews.UserLogin.as_view() , name="login"),
     path("signup/", AuthViews.RegisterUser.as_view() , name="signup"),
     path("register-vendor/", AuthViews.RegisterAsVendor.as_view(), name="register_as_vendor"),
-    path("vendor-login/", AuthViews.VendorLogin.as_view(), name="vendor_login")
+    path("vendor-login/", AuthViews.VendorLogin.as_view(), name="vendor-login"),
+    path("get-all-vendors/", AuthViews.GetAllVendors.as_view(), name="get-all-vednors")
 ]

@@ -5,7 +5,8 @@ from . import serializers as ProductsSerializers
 from .models import Product,Category,CartItem
 from .permissions import IsVendorOrReadOnly
 from .mixins import UserAsVendorAPIView,UserInSerializerContext
-
+from django.db.models import Q
+from Services.permissions import IsVendor
 # Create your views here.
 
 class NormalPagination(pagination.PageNumberPagination):
@@ -24,21 +25,39 @@ class RetrieveVendorProducts(UserInSerializerContext, generics.ListAPIView):
     permission_classes = [IsVendorOrReadOnly]
     serializer_class = ProductsSerializers.ProductSerializer
 
+
+
     def get_queryset(self):
         return Product.objects.filter(vendor=self.request.user)
 
 
 class GetCategories(generics.ListAPIView):
     serializer_class = ProductsSerializers.CategorySerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.AllowAny]
     queryset = Category.objects.all()
 
 
 class GetProductForUser(UserInSerializerContext ,generics.ListAPIView):
     pagination_class = NormalPagination
     serializer_class =  ProductsSerializers.ProductSerializer
-    queryset = Product.objects.all()
     permission_classes = [permissions.AllowAny]
+
+    def get_queryset(self):
+        queryset = Product.objects.all()
+        vendor_id = self.request.GET.get("vendor" , None)
+        category_id = self.request.GET.get("category" , None)
+        search_query = self.request.GET.get("search_query" , None)
+
+        if search_query:
+            queryset = Product.objects.filter(Q(name__icontains=search_query) | Q(description__icontains=search_query))
+
+        if category_id:
+            queryset = Product.objects.filter(category__id=category_id)
+
+        if vendor_id:
+            queryset = queryset.filter(vendor__id=vendor_id)
+
+        return queryset
 
 class GetUserCart(UserInSerializerContext, generics.ListAPIView):
     pagination_class = NormalPagination
@@ -73,5 +92,9 @@ class ProductDetailView(UserInSerializerContext, generics.RetrieveAPIView):
     serializer_class = ProductsSerializers.ProductSerializer
     queryset = Product.objects.all()
 
+class AddCategory(generics.CreateAPIView):
+    permission_classes = [IsVendor]
+    serializer_class =  ProductsSerializers.CategorySerializer
+    queryset = Category.objects.all()
 
 

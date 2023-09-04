@@ -14,5 +14,6 @@ class Order(models.Model):
     quantity = models.PositiveSmallIntegerField(default=1)
     total_price = models.PositiveIntegerField()
     purchased_on = models.DateTimeField(auto_now_add=True)
+    status = models.CharField(max_length=100 , choices=(("Pending","Pending"),("Shipped","Shipped"),("Delivered","Delivered")) , default="Pending")
 
 

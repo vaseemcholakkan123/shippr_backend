@@ -6,6 +6,7 @@ from . import serializers as ServiceSerializers
 from Products.models import  Product
 from Products.mixins import UserInSerializerContext
 from Products.views import NormalPagination
+from .permissions import IsVendor
 # Create your views here.
 
 
@@ -42,5 +43,21 @@ class GetUserOrders(UserInSerializerContext, generics.ListAPIView):
 
     def get_queryset(self):
         return Order.objects.filter(user=self.request.user)
+
+
+class GetVendorOrders(generics.ListAPIView):
+    pagination_class = NormalPagination
+    serializer_class = ServiceSerializers.VendorOrderSerializer
+    permission_classes = [IsVendor]
+
+    def get_queryset(self):
+        return Order.objects.filter(product__vendor=self.request.user)
+
+
+class UpdateOrderStatus(generics.UpdateAPIView):
+    queryset = Order.objects.all()
+    serializer_class = ServiceSerializers.VendorOrderSerializer
+    permission_classes = [IsVendor]
+
 
 

@@ -3,7 +3,7 @@ from rest_framework import generics , status
 from rest_framework import permissions
 from rest_framework.response import Response
 from .models import User
-from .serializers import CreateUserSerializer
+from .serializers import CreateUserSerializer , UserSerializer
 from .mixins import AuthMixin
 
 # Create your views here.
@@ -42,3 +42,11 @@ class VendorLogin(AuthMixin, APIView):
 
     def post(self, request, *args, **kwargs):
         return self.authenticate_login(request)
+
+
+class GetAllVendors(generics.ListAPIView):
+    permission_classes =  [permissions.AllowAny]
+    serializer_class = UserSerializer
+
+    def get_queryset(self):
+        return User.objects.filter(is_vendor=True)

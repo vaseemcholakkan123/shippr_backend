@@ -30,9 +30,9 @@ SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-ALLOWED_HOSTS = []
-
+print(env("ALLOWED_HOSTS", default="").split(","))
+ALLOWED_HOSTS = env("ALLOWED_HOSTS", default="").split(",")
+CORS_ALLOWED_ORIGINS = env("CORS_ORIGINS", default="").split(",")
 
 # Application definition
 

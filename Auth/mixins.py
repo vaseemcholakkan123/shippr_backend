@@ -11,8 +11,8 @@ class AuthMixin:
     is_vendor_login = False
 
     def authenticate_login(self,request):
-        username = request.data.pop("username", None)
-        password = request.data.pop("password", None)
+        username = request.data.get("username", None)
+        password = request.data.get("password", None)
 
         if not username or not password:
             return Response(status=status.HTTP_400_BAD_REQUEST, data={'message': 'Credentials not provided'})

@@ -5,6 +5,5 @@ from . import models as ProductsModels
 
 admin.site.register(ProductsModels.Product)
 admin.site.register(ProductsModels.Images)
-admin.site.register(ProductsModels.Review)
 admin.site.register(ProductsModels.CartItem)
 admin.site.register(ProductsModels.Category)
