@@ -75,4 +75,5 @@ Technologies used in the project:
 *   React
 *   TypeScript
 *   DRF
+*   Django Unit Test
 
