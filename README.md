@@ -22,10 +22,11 @@ Here're some of the project's best features:
 *   Vendor registration and login
 *   Vendors can add,update or delete products
 *   Users can view and filter the products by category or vendor
+*   Users can search products based on name or description
 *   Users can add and remove products to or from cart
 *   Users can purchase products and trace thier orders
 *   Vendors can view or change status of orders placed on thier product
-*   Users can search products based on name or description
+
 
 <h2>🛠️ Installation Steps:</h2>
 
