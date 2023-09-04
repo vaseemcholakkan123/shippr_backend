@@ -10,9 +10,7 @@
 
 <h2>Project Screenshots:</h2>
 
-<img src="https://i.ibb.co/KjS1cXh/shippr1.png" alt="project-screenshot" width="600" height="400/">
-
-<img src="https://i.ibb.co/BT5tpm9/shippr3.png" alt="project-screenshot" width="600" height="400/">
+<img src="https://i.ibb.co/KjS1cXh/shippr1.png" alt="project-screenshot" width="500" height="350/">   <img src="https://i.ibb.co/BT5tpm9/shippr3.png" alt="project-screenshot" width="500" height="350/">
 
   
   
