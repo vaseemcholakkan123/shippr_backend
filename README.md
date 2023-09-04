@@ -77,4 +77,3 @@ Technologies used in the project:
 *   TypeScript
 *   DRF
 
-<h2>💖Like my work?</h2>
